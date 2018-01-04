@@ -1,5 +1,5 @@
 package com.nvoulgaris.marsrover;
 
-public class RoverCommand {
+public class RoverMotionCommand {
 
 }
