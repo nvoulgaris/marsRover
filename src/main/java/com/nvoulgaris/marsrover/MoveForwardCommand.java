@@ -4,12 +4,12 @@ public class MoveForwardCommand implements RoverMotionCommand {
 
   private Rover rover;
 
-  public MoveForwardCommand(Rover rove) {
+  public MoveForwardCommand(Rover rover) {
     this.rover = rover;
   }
 
   @Override
   public void execute() {
-    throw new UnsupportedOperationException();
+    rover.moveForward();
   }
 }

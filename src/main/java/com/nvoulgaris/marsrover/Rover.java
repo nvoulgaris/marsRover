@@ -15,4 +15,8 @@ public class Rover {
   public Position getCurrentPosition() {
     return new Position(x,  y);
   }
+
+  public Position moveForward() {
+    return new Position(++x,  ++y);
+  }
 }
