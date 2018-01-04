@@ -37,7 +37,8 @@ public class NavigationFeature {
 
   @Before
   public void setUp() throws Exception {
-    navigator = new Navigator(new Rover(0, 0, "N"));
+    rover = new Rover(0, 0, "N");
+    navigator = new Navigator();
     remoteDriver = new RemoteDriver(navigator);
   }
 
@@ -45,7 +46,8 @@ public class NavigationFeature {
   public void shouldBeAbleToNavigateOnTheGrid() throws Exception {
     remoteDriver.create(commandsToGetTwoCellsNorthAndTwoCellsEast());
 
-    Position position = navigator.receiveCommands();
+    navigator.executeCommands();
+    Position position = rover.getCurrentPosition();
 
     assertThat(position).isEqualTo(new Position(2, 2));
   }

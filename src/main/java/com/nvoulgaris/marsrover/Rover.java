@@ -11,4 +11,8 @@ public class Rover {
     this.y = y;
     this.direction = direction;
   }
+
+  public Position getCurrentPosition() {
+    return new Position(x,  y);
+  }
 }

@@ -1,20 +1,21 @@
 package com.nvoulgaris.marsrover;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Navigator {
 
-  private Rover rover;
+  private List<RoverMotionCommand> commands;
 
-  public Navigator(Rover rover) {
-    this.rover = rover;
-  }
-
-  public Position receiveCommands() {
-    throw new UnsupportedOperationException();
+  public Navigator() {
+    this.commands = new ArrayList<>();
   }
 
   public void create(List<RoverMotionCommand> commands) {
-    throw new UnsupportedOperationException();
+    this.commands.addAll(commands);
+  }
+
+  public void executeCommands() {
+    this.commands.forEach(c -> c.execute());
   }
 }

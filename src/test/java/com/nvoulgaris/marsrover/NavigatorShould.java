@@ -2,37 +2,39 @@ package com.nvoulgaris.marsrover;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.InOrder;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.mockito.Mockito.verify;
+public class NavigatorShould {
 
-public class RemoteDriverShould {
-
-  @Mock Navigator navigator;
   @Mock MoveForwardCommand moveForwardCommand;
   @Mock TurnLeftCommand turnLeftCommand;
 
   private List<RoverMotionCommand> commands;
-  private RemoteDriver remoteDriver;
+  private Navigator navigator;
 
   @Before
   public void setUp() throws Exception {
     MockitoAnnotations.initMocks(this);
-    remoteDriver = new RemoteDriver(navigator);
     commands = new ArrayList<>();
+    navigator = new Navigator();
   }
 
   @Test
-  public void createRoverMotionCommands() throws Exception {
+  public void executeCreatedCommands() throws Exception {
     commands.add(moveForwardCommand);
     commands.add(turnLeftCommand);
+    navigator.create(commands);
 
-    remoteDriver.create(commands);
+    navigator.executeCommands();
 
-    verify(navigator).create(commands);
+    InOrder inOrder = Mockito.inOrder(moveForwardCommand, turnLeftCommand);
+    inOrder.verify(moveForwardCommand).execute();
+    inOrder.verify(turnLeftCommand).execute();
   }
 }

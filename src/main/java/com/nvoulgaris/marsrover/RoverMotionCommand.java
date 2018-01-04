@@ -1,5 +1,6 @@
 package com.nvoulgaris.marsrover;
 
-public class RoverMotionCommand {
+public interface RoverMotionCommand {
 
+  void execute();
 }
