@@ -23,4 +23,25 @@ public class PositionShould {
 
     assertThat(position.getX()).isEqualTo(INITIAL_X + ONE);
   }
+
+  @Test
+  public void decrementX() throws Exception {
+    position = position.decrementX();
+
+    assertThat(position.getX()).isEqualTo(INITIAL_X - ONE);
+  }
+
+  @Test
+  public void incrementY() throws Exception {
+    position = position.incrementY();
+
+    assertThat(position.getY()).isEqualTo(INITIAL_Y + ONE);
+  }
+
+  @Test
+  public void decrementY() throws Exception {
+    position = position.decrementY();
+
+    assertThat(position.getY()).isEqualTo(INITIAL_Y - ONE);
+  }
 }

@@ -31,6 +31,21 @@ public class Position {
     return this;
   }
 
+  public Position decrementX() {
+    x--;
+    return this;
+  }
+
+  public Position incrementY() {
+    y++;
+    return this;
+  }
+
+  public Position decrementY() {
+    y--;
+    return this;
+  }
+
   @Override
   public String toString() {
     return "Position{" + "x=" + x + ", y=" + y + '}';

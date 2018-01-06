@@ -16,7 +16,17 @@ public class NorthState implements RoverState {
   }
 
   @Override
+  public void moveBackward() {
+    rover.decrementX();
+  }
+
+  @Override
   public void turnRight() {
     rover.setFacingState(rover.getEastState());
+  }
+
+  @Override
+  public void turnLeft() {
+    rover.setFacingState(rover.getWestState());
   }
 }

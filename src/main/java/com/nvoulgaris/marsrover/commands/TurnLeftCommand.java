@@ -13,6 +13,6 @@ public class TurnLeftCommand implements RoverMotionCommand {
 
   @Override
   public void execute() {
-    throw new UnsupportedOperationException();
+    rover.turnLeft();
   }
 }

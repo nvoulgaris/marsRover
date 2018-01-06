@@ -13,6 +13,6 @@ public class MoveBackwardCommand implements RoverMotionCommand {
 
   @Override
   public void execute() {
-    throw new UnsupportedOperationException();
+    rover.moveBackward();
   }
 }

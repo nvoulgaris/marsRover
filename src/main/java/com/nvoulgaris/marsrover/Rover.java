@@ -45,8 +45,16 @@ public class Rover {
     facingState.moveForward();
   }
 
+  public void moveBackward() {
+    facingState.moveBackward();
+  }
+
   public void turnRight() {
     facingState.turnRight();
+  }
+
+  public void turnLeft() {
+    facingState.turnLeft();
   }
 
   public RoverState getNorthState() {
@@ -67,5 +75,17 @@ public class Rover {
 
   public void incrementX() {
     this.position.incrementX();
+  }
+
+  public void decrementX() {
+    this.position.decrementX();
+  }
+
+  public void incrementY() {
+    this.position.incrementY();
+  }
+
+  public void decrementY() {
+    this.position.decrementY();
   }
 }

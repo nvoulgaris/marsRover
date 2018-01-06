@@ -12,11 +12,21 @@ public class WestState implements RoverState {
 
   @Override
   public void moveForward() {
-    throw new UnsupportedOperationException();
+    rover.decrementY();
+  }
+
+  @Override
+  public void moveBackward() {
+    rover.incrementY();
   }
 
   @Override
   public void turnRight() {
-    throw new UnsupportedOperationException();
+    rover.setFacingState(rover.getNorthState());
+  }
+
+  @Override
+  public void turnLeft() {
+    rover.setFacingState(rover.getSouthState());
   }
 }

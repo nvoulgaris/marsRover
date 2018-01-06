@@ -1,5 +1,6 @@
 package com.nvoulgaris.marsrover;
 
+import com.nvoulgaris.marsrover.states.RoverState;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,6 +10,11 @@ public class RoverShould {
 
   Position position;
   Rover rover;
+
+  private void assertRoverFacingDirectionAndPosition(RoverState state, Position position) {
+    assertThat(rover.getFacingState()).isEqualTo(state);
+    assertThat(rover.getPosition()).isEqualTo(position);
+  }
 
   @Before
   public void setUp() throws Exception {
@@ -20,14 +26,20 @@ public class RoverShould {
   public void moveForward() throws Exception {
     rover.moveForward();
 
-    assertThat(rover.getFacingState()).isEqualTo(rover.getNorthState());
-    assertThat(rover.getPosition()).isEqualTo(new Position(1,0));
+    assertRoverFacingDirectionAndPosition(rover.getNorthState(), new Position(1,0));
   }
 
   @Test
   public void turnRight() throws Exception {
     rover.turnRight();
 
-    assertThat(rover.getFacingState()).isEqualTo(rover.getEastState());
+    assertRoverFacingDirectionAndPosition(rover.getEastState(), new Position(0,0));
+  }
+
+  @Test
+  public void turnLeft() throws Exception {
+    rover.turnLeft();
+
+    assertRoverFacingDirectionAndPosition(rover.getWestState(), new Position(0, 0));
   }
 }

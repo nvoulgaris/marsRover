@@ -8,22 +8,22 @@ import org.mockito.MockitoAnnotations;
 
 import static org.mockito.Mockito.verify;
 
-public class MoveForwardCommandShould {
+public class MoveBackwardCommandShould {
 
   @Mock Rover rover;
 
-  private MoveForwardCommand moveForwardCommand;
+  private MoveBackwardCommand moveBackwardCommand;
 
   @Before
   public void setUp() throws Exception {
     MockitoAnnotations.initMocks(this);
-    moveForwardCommand = new MoveForwardCommand(rover);
+    moveBackwardCommand = new MoveBackwardCommand(rover);
   }
 
   @Test
-  public void moveTheRoverOneCellForward() throws Exception {
-    moveForwardCommand.execute();
+  public void moveTheRoverOneCellBackward() throws Exception {
+    moveBackwardCommand.execute();
 
-    verify(rover).moveForward();
+    verify(rover).moveBackward();
   }
 }
