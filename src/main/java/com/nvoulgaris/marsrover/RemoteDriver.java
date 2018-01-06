@@ -1,16 +1,17 @@
 package com.nvoulgaris.marsrover;
 
-import java.util.List;
-
 public class RemoteDriver {
 
-  private Navigator navigator;
+  private CommandRepository commandRepository;
 
-  public RemoteDriver(Navigator navigator) {
-    this.navigator = navigator;
+  public RemoteDriver(CommandRepository commandRepository) {
+    this.commandRepository = commandRepository;
   }
 
-  public void create(List<RoverMotionCommand> commands) {
-    navigator.create(commands);
+  public void sendCommands(String commands) {
+    for (char commandCode : commands.toCharArray()) {
+      RoverMotionCommand command = commandRepository.getCommandByCode(commandCode);
+      command.execute();
+    }
   }
 }

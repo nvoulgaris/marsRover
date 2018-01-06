@@ -14,6 +14,7 @@ You’re part of the team that explores Mars by sending remotely controlled vehi
 # Technical specs
 
 * Outside-in TDD
+* Classicist TDD
 * State pattern
 * Command pattern
 
