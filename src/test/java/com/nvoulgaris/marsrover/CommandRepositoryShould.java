@@ -3,6 +3,7 @@ package com.nvoulgaris.marsrover;
 import com.nvoulgaris.marsrover.commands.MoveBackwardCommand;
 import com.nvoulgaris.marsrover.commands.MoveForwardCommand;
 import com.nvoulgaris.marsrover.commands.NoCommand;
+import com.nvoulgaris.marsrover.commands.RoverMotionCommand;
 import com.nvoulgaris.marsrover.commands.TurnLeftCommand;
 import com.nvoulgaris.marsrover.commands.TurnRightCommand;
 import org.junit.Before;

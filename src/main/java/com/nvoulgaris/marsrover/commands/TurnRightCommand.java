@@ -1,7 +1,6 @@
 package com.nvoulgaris.marsrover.commands;
 
 import com.nvoulgaris.marsrover.Rover;
-import com.nvoulgaris.marsrover.RoverMotionCommand;
 
 public class TurnRightCommand implements RoverMotionCommand {
 

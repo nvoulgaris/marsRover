@@ -15,6 +15,14 @@ public class NavigationFeature {
   RemoteDriver remoteDriver;
   CommandRepository commandRepository;
 
+  private void moveTenCellsForward() {
+    remoteDriver.sendCommands("FFFFFFFFFF");
+  }
+
+  private void turnRight() {
+    remoteDriver.sendCommands("R");
+  }
+
   @Before
   public void setUp() throws Exception {
     rover = new Rover(new Position(0, 0));
@@ -29,5 +37,22 @@ public class NavigationFeature {
     Position position = rover.getPosition();
 
     assertThat(position).isEqualTo(new Position(2, 2));
+  }
+
+  @Test
+  public void shouldWrapWhenReachingTheEndOfTheGrid() throws Exception {
+    moveTenCellsForward();
+    turnRight();
+    moveTenCellsForward();
+    turnRight();
+    moveTenCellsForward();
+    turnRight();
+    moveTenCellsForward();
+    turnRight();
+    remoteDriver.sendCommands("FRF");
+
+    Position position = rover.getPosition();
+
+    assertThat(position).isEqualTo(new Position(1, 1));
   }
 }

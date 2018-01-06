@@ -1,4 +1,4 @@
-package com.nvoulgaris.marsrover;
+package com.nvoulgaris.marsrover.commands;
 
 public interface RoverMotionCommand {
 

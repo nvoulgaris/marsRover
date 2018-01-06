@@ -1,6 +1,7 @@
 package com.nvoulgaris.marsrover;
 
 import com.nvoulgaris.marsrover.states.EastState;
+import com.nvoulgaris.marsrover.states.NorthState;
 import com.nvoulgaris.marsrover.states.RoverState;
 import com.nvoulgaris.marsrover.states.SouthState;
 import com.nvoulgaris.marsrover.states.WestState;

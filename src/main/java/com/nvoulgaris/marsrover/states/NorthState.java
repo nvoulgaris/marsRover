@@ -1,6 +1,6 @@
-package com.nvoulgaris.marsrover;
+package com.nvoulgaris.marsrover.states;
 
-import com.nvoulgaris.marsrover.states.RoverState;
+import com.nvoulgaris.marsrover.Rover;
 
 public class NorthState implements RoverState {
 

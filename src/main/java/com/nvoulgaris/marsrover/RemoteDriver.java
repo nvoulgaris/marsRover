@@ -1,5 +1,7 @@
 package com.nvoulgaris.marsrover;
 
+import com.nvoulgaris.marsrover.commands.RoverMotionCommand;
+
 public class RemoteDriver {
 
   private CommandRepository commandRepository;

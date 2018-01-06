@@ -1,6 +1,5 @@
 package com.nvoulgaris.marsrover.states;
 
-import com.nvoulgaris.marsrover.NorthState;
 import com.nvoulgaris.marsrover.Rover;
 import org.junit.Before;
 import org.junit.Test;
