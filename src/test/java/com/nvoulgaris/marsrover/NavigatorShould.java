@@ -1,5 +1,7 @@
 package com.nvoulgaris.marsrover;
 
+import com.nvoulgaris.marsrover.commands.MoveForwardCommand;
+import com.nvoulgaris.marsrover.commands.TurnLeftCommand;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InOrder;
@@ -12,8 +14,10 @@ import java.util.List;
 
 public class NavigatorShould {
 
-  @Mock MoveForwardCommand moveForwardCommand;
-  @Mock TurnLeftCommand turnLeftCommand;
+  @Mock
+  MoveForwardCommand moveForwardCommand;
+  @Mock
+  TurnLeftCommand turnLeftCommand;
 
   private List<RoverMotionCommand> commands;
   private Navigator navigator;

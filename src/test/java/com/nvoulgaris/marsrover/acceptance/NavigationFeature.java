@@ -1,14 +1,15 @@
 package com.nvoulgaris.marsrover.acceptance;
 
-import com.nvoulgaris.marsrover.MoveBackwardCommand;
-import com.nvoulgaris.marsrover.MoveForwardCommand;
 import com.nvoulgaris.marsrover.Navigator;
+import com.nvoulgaris.marsrover.NorthState;
 import com.nvoulgaris.marsrover.Position;
 import com.nvoulgaris.marsrover.RemoteDriver;
 import com.nvoulgaris.marsrover.Rover;
 import com.nvoulgaris.marsrover.RoverMotionCommand;
-import com.nvoulgaris.marsrover.TurnLeftCommand;
-import com.nvoulgaris.marsrover.TurnRightCommand;
+import com.nvoulgaris.marsrover.commands.MoveBackwardCommand;
+import com.nvoulgaris.marsrover.commands.MoveForwardCommand;
+import com.nvoulgaris.marsrover.commands.TurnLeftCommand;
+import com.nvoulgaris.marsrover.commands.TurnRightCommand;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,6 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class NavigationFeature {
 
+  NorthState northState;
   Rover rover;
   Navigator navigator;
   RemoteDriver remoteDriver;
@@ -37,7 +39,8 @@ public class NavigationFeature {
 
   @Before
   public void setUp() throws Exception {
-    rover = new Rover(0, 0, "N");
+    northState = new NorthState(new Position(0, 0));
+    rover = new Rover(northState);
     navigator = new Navigator();
     remoteDriver = new RemoteDriver(navigator);
   }
@@ -47,7 +50,7 @@ public class NavigationFeature {
     remoteDriver.create(commandsToGetTwoCellsNorthAndTwoCellsEast());
 
     navigator.executeCommands();
-    Position position = rover.getCurrentPosition();
+    Position position = rover.getPosition();
 
     assertThat(position).isEqualTo(new Position(2, 2));
   }

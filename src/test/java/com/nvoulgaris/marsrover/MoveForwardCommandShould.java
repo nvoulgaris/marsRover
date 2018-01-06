@@ -1,5 +1,6 @@
 package com.nvoulgaris.marsrover;
 
+import com.nvoulgaris.marsrover.commands.MoveForwardCommand;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;

@@ -26,6 +26,11 @@ public class Position {
     this.y = y;
   }
 
+  public Position incrementX() {
+    x++;
+    return this;
+  }
+
   @Override
   public String toString() {
     return "Position{" + "x=" + x + ", y=" + y + '}';

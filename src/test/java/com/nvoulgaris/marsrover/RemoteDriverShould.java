@@ -1,5 +1,7 @@
 package com.nvoulgaris.marsrover;
 
+import com.nvoulgaris.marsrover.commands.MoveForwardCommand;
+import com.nvoulgaris.marsrover.commands.TurnLeftCommand;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -13,8 +15,10 @@ import static org.mockito.Mockito.verify;
 public class RemoteDriverShould {
 
   @Mock Navigator navigator;
-  @Mock MoveForwardCommand moveForwardCommand;
-  @Mock TurnLeftCommand turnLeftCommand;
+  @Mock
+  MoveForwardCommand moveForwardCommand;
+  @Mock
+  TurnLeftCommand turnLeftCommand;
 
   private List<RoverMotionCommand> commands;
   private RemoteDriver remoteDriver;

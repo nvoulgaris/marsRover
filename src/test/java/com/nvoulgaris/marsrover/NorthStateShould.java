@@ -1,6 +1,5 @@
 package com.nvoulgaris.marsrover;
 
-import com.nvoulgaris.marsrover.states.RoverState;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -8,22 +7,22 @@ import org.mockito.MockitoAnnotations;
 
 import static org.mockito.Mockito.verify;
 
-public class RoverShould {
+public class NorthStateShould {
 
-  @Mock RoverState roverState;
+  @Mock Position position;
 
-  private Rover rover;
+  NorthState state;
 
   @Before
   public void setUp() throws Exception {
     MockitoAnnotations.initMocks(this);
-    rover = new Rover(roverState);
+    state = new NorthState(position);
   }
 
   @Test
-  public void moveForward() throws Exception {
-    rover.moveForward();
+  public void moveOneCellUpWhenCommandedToMoveForward() throws Exception {
+    state.moveForward();
 
-    verify(roverState).moveForward();
+    verify(position).incrementX();
   }
 }

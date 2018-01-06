@@ -1,22 +1,21 @@
 package com.nvoulgaris.marsrover;
 
+import com.nvoulgaris.marsrover.states.RoverState;
+
 public class Rover {
 
-  private int x;
-  private int y;
-  private String direction;
+  private Position position;
+  private RoverState state;
 
-  public Rover(int x, int y, String direction) {
-    this.x = x;
-    this.y = y;
-    this.direction = direction;
+  public Rover(RoverState facingState) {
+    this.state = facingState;
   }
 
-  public Position getCurrentPosition() {
-    return new Position(x,  y);
+  public Position getPosition() {
+    return this.position;
   }
 
-  public Position moveForward() {
-    return new Position(++x,  ++y);
+  public void moveForward() {
+    state.moveForward();
   }
 }
