@@ -1,7 +1,6 @@
 package com.nvoulgaris.marsrover.acceptance;
 
 import com.nvoulgaris.marsrover.Navigator;
-import com.nvoulgaris.marsrover.NorthState;
 import com.nvoulgaris.marsrover.Position;
 import com.nvoulgaris.marsrover.RemoteDriver;
 import com.nvoulgaris.marsrover.Rover;
@@ -19,7 +18,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class NavigationFeature {
 
-  NorthState northState;
   Rover rover;
   Navigator navigator;
   RemoteDriver remoteDriver;
@@ -39,8 +37,7 @@ public class NavigationFeature {
 
   @Before
   public void setUp() throws Exception {
-    northState = new NorthState(new Position(0, 0));
-    rover = new Rover(northState);
+    rover = new Rover(new Position(0, 0));
     navigator = new Navigator();
     remoteDriver = new RemoteDriver(navigator);
   }

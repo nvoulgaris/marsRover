@@ -1,29 +1,33 @@
 package com.nvoulgaris.marsrover;
 
-import com.nvoulgaris.marsrover.states.RoverState;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 
-import static org.mockito.Mockito.verify;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class RoverShould {
 
-  @Mock RoverState roverState;
-
-  private Rover rover;
+  Position position;
+  Rover rover;
 
   @Before
   public void setUp() throws Exception {
-    MockitoAnnotations.initMocks(this);
-    rover = new Rover(roverState);
+    position = new Position(0, 0);
+    rover = new Rover(position);
   }
 
   @Test
   public void moveForward() throws Exception {
     rover.moveForward();
 
-    verify(roverState).moveForward();
+    assertThat(rover.getFacingState()).isEqualTo(rover.getNorthState());
+    assertThat(rover.getPosition()).isEqualTo(new Position(1,0));
+  }
+
+  @Test
+  public void turnRight() throws Exception {
+    rover.turnRight();
+
+    assertThat(rover.getFacingState()).isEqualTo(rover.getEastState());
   }
 }

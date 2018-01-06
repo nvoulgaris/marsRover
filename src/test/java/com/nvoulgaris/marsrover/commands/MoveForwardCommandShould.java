@@ -1,6 +1,6 @@
-package com.nvoulgaris.marsrover;
+package com.nvoulgaris.marsrover.commands;
 
-import com.nvoulgaris.marsrover.commands.MoveForwardCommand;
+import com.nvoulgaris.marsrover.Rover;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -10,7 +10,8 @@ import static org.mockito.Mockito.verify;
 
 public class MoveForwardCommandShould {
 
-  @Mock Rover rover;
+  @Mock
+  Rover rover;
 
   private MoveForwardCommand moveForwardCommand;
 

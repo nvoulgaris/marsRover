@@ -1,8 +1,8 @@
 package com.nvoulgaris.marsrover.states;
 
-import com.nvoulgaris.marsrover.Position;
-
 public interface RoverState {
 
-  Position moveForward();
+  void moveForward();
+
+  void turnRight();
 }

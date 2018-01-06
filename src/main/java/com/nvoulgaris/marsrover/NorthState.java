@@ -4,14 +4,19 @@ import com.nvoulgaris.marsrover.states.RoverState;
 
 public class NorthState implements RoverState {
 
-  private Position position;
+  private Rover rover;
 
-  public NorthState(Position position) {
-    this.position = position;
+  public NorthState(Rover rover) {
+    this.rover = rover;
   }
 
   @Override
-  public Position moveForward() {
-    return position.incrementX();
+  public void moveForward() {
+    rover.incrementX();
+  }
+
+  @Override
+  public void turnRight() {
+    rover.setFacingState(rover.getEastState());
   }
 }
